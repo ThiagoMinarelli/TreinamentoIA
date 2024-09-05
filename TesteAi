@@ -1,0 +1,28 @@
+from sklearn.tree import DecisionTreeClassifier
+
+# Dados de treinamento
+# Características das aves: [Envergadura das asas, Peso, Comprimento do bico]
+caracteristicas = [
+    [120.0, 3.5, 7.0],  # Ave Carnívora - Ave 1 
+    [85.0, 1.2, 4.0],   # Ave Herbívora - Ave 2
+    [95.0, 2.1, 6.0]    # Ave Onívora - Ave 3
+]
+
+# Classes correspondentes às características
+classes = ['Ave Carnívora', 'Ave Herbívora', 'Ave Onívora']
+
+# Criação do modelo de Árvore de Decisão
+modelo = DecisionTreeClassifier()
+
+# Treinamento do modelo
+modelo.fit(caracteristicas, classes)
+
+# Dados de teste
+# Características da nova ave a ser testada
+teste_ave = [[90.0, 1.5, 5.0]]
+
+# Classificação das aves de teste
+classificacao_teste = modelo.predict(teste_ave)
+
+# Exibição da categoria atribuída à ave teste
+print('A nova ave foi classificada como:', classificacao_teste[0])
